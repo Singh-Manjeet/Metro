@@ -8,14 +8,29 @@
 
 import UIKit
 
+enum PickerMode {
+    case from
+    case to
+}
+
 class ViewController: UIViewController {
     
     //MARK: - IBOutlets & Vars
+    @IBOutlet private weak var fromTextField: UITextField!
+    @IBOutlet private weak var toTextField: UITextField!
+    @IBOutlet private weak var generateTicketButton: UIButton!
+    @IBOutlet private weak var calculateFairButton: UIButton!
+    @IBOutlet private weak var stationPicker: UIPickerView!
+    
     private var viewModel: StationViewModel!
+    private var pickerMode: PickerMode = .from
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
         viewModel = StationViewModel(delegate: self)
+        viewModel.loadStations()
     }
 }
 
@@ -28,7 +43,8 @@ extension ViewController: StationViewModelDelegate {
             guard let strongSelf = self else { return }
             
             switch state {
-            case .loaded: break
+            case .loaded:
+                strongSelf.stationPicker.reloadAllComponents()
             case .error(let error):
                 strongSelf.showAlert(with: error.message)
             default:
@@ -39,11 +55,71 @@ extension ViewController: StationViewModelDelegate {
 }
 
 private extension ViewController {
+    func setupUI() {
+        [fromTextField, toTextField, generateTicketButton, calculateFairButton].forEach {
+            $0?.layer.cornerRadius = ($0?.frame.height ?? 44) / 2
+            $0?.layer.borderColor = UIColor.orange.cgColor
+            $0?.layer.borderWidth = 1.0
+        }
+    }
     func showAlert(with message: String) {
         let alertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(okAction)
         present(alertController, animated: true)
+    }
+    
+    func animatePickerView(show: Bool) {
+        
+        UIView.animate(withDuration: 1, delay: 0, options: .curveLinear, animations: { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.stationPicker.alpha = show ? 1.0 : 0
+            strongSelf.stationPicker.isUserInteractionEnabled = show
+            strongSelf.stationPicker.layoutIfNeeded()
+        }, completion: nil)
+    }
+}
+
+extension ViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        guard let stations = viewModel.stations else { return 0 }
+        return stations.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        
+        guard let stations = viewModel.stations else { return }
+        
+        switch pickerMode {
+        case .from:
+            fromTextField.text = stations[row].title
+        case .to:
+            toTextField.text = stations[row].title
+        }
+        
+        animatePickerView(show: false)
+        view.endEditing(true)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let stationAtRow = viewModel.stations![row]
+        let myTitle = NSAttributedString(string: stationAtRow.title, attributes: [NSAttributedString.Key.foregroundColor: UIColor.orange])
+
+        return myTitle
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        pickerMode = textField == fromTextField ? .from : .to
+        animatePickerView(show: true)
+        return false
     }
 }
 
