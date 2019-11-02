@@ -12,7 +12,25 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
+//        DataManager.shared.loadMetroStations(filename: "stations") { result in
+//
+//            switch result {
+//            case .success(let stations):
+//                print(stations)
+//            case .failure:break
+//            }
+//        }
+        
+        
+        DataManager.shared.fetchMetroStations { result in
+
+            switch result {
+            case .success(let stations):
+                print(stations)
+            case .failure:break
+            }
+        }
     }
 
 

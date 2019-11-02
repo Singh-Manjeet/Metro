@@ -1,0 +1,101 @@
+[{
+            "id": 1,
+            "title": "Karol Bagh",
+            "route": "blue",
+            "previous_station_id": 0,
+            "direction": "west",
+            "next_station_id": 2,
+            "interchange_available": false,
+            "fair": 2.00
+        },
+        {
+            "id": 2,
+            "title": "Jhandewalan",
+            "route": "blue",
+            "previous_station_id": 1,
+            "direction": "west",
+            "next_station_id": 3,
+            "interchange_available": false,
+            "fair": 2.00
+        },
+        {
+            "id": 3,
+            "title": "R.K.Ashram",
+            "route": "blue",
+            "previous_station_id": 2,
+            "direction": "west",
+            "next_station_id": 4,
+            "interchange_available": false,
+            "fair": 2.00
+        },
+        {
+            "id": 4,
+            "title": "Rajiv Chowk",
+            "route": "multiple",
+            "previous_station_id": 3,
+            "direction": "west",
+            "next_station_id": 5,
+            "interchange_available": true,
+            "fair": 5.00
+        },
+        {
+            "id": 5,
+            "title": "Barakhamba",
+            "route": "blue",
+            "previous_station_id": 4,
+            "direction": "west",
+            "next_station_id": 6,
+            "interchange_available": false,
+            "fair": 2.00
+        },
+        {
+            "id": 6,
+            "title": "Mandi House",
+            "route": "multiple",
+            "previous_station_id": 5,
+            "direction": "west",
+            "next_station_id": 7,
+            "interchange_available": true,
+            "fair": 5.00
+        },
+        {
+            "id": 7,
+            "title": "Okhla",
+            "route": "green",
+            "previous_station_id": 6,
+            "direction": "north",
+            "next_station_id": 0,
+            "interchange_available": false,
+            "fair": 2.00
+        },
+        {
+            "id": 8,
+            "title": "New Delhi",
+            "route": "yellow",
+            "previous_station_id": 4,
+            "direction": "north",
+            "next_station_id": 0,
+            "interchange_available": false,
+            "fair": 2.00
+        },
+        {
+            "id": 9,
+            "title": "Patel Chowk",
+            "route": "yellow",
+            "previous_station_id": 4,
+            "direction": "south",
+            "next_station_id": 10,
+            "interchange_available": false,
+            "fair": 2.00
+        },
+        {
+            "id": 10,
+            "title": "INA",
+            "route": "yellow",
+            "previous_station_id": 9,
+            "direction": "south",
+            "next_station_id": 0,
+            "interchange_available": false,
+            "fair": 2.00
+        }
+    ]

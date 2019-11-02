@@ -1,0 +1,6 @@
+framework module Pods_Metro_MetroUITests {
+  umbrella header "Pods-Metro-MetroUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
