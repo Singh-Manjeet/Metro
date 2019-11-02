@@ -99,12 +99,14 @@
 		30598E7F236D09E500EE4325 /* Metro */ = {
 			isa = PBXGroup;
 			children = (
+				30598EB2236D0C4A00EE4325 /* Model */,
+				30598EB4236D0C4A00EE4325 /* View */,
+				30598EB3236D0C4A00EE4325 /* ViewModel */,
+				30598EB0236D0C4A00EE4325 /* Service */,
+				30598EB1236D0C4A00EE4325 /* Extensions */,
 				30598E80236D09E500EE4325 /* AppDelegate.swift */,
 				30598E82236D09E500EE4325 /* SceneDelegate.swift */,
-				30598E84236D09E500EE4325 /* ViewController.swift */,
-				30598E86236D09E500EE4325 /* Main.storyboard */,
 				30598E89236D09E700EE4325 /* Assets.xcassets */,
-				30598E8B236D09E700EE4325 /* LaunchScreen.storyboard */,
 				30598E8E236D09E700EE4325 /* Info.plist */,
 			);
 			path = Metro;
@@ -126,6 +128,60 @@
 				30598EA4236D09E700EE4325 /* Info.plist */,
 			);
 			path = MetroUITests;
+			sourceTree = "<group>";
+		};
+		30598EB0236D0C4A00EE4325 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		30598EB1236D0C4A00EE4325 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		30598EB2236D0C4A00EE4325 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30598EB3236D0C4A00EE4325 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		30598EB4236D0C4A00EE4325 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30598EB6236D0CBD00EE4325 /* Scenes */,
+				30598EB5236D0CBD00EE4325 /* Storyboards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		30598EB5236D0CBD00EE4325 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				30598E86236D09E500EE4325 /* Main.storyboard */,
+				30598E8B236D09E700EE4325 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		30598EB6236D0CBD00EE4325 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				30598E84236D09E500EE4325 /* ViewController.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
