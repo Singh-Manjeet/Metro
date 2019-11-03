@@ -22,24 +22,24 @@ enum RouteDirection: String, Codable {
     case west
 }
 
-struct Station : Codable {
+struct Station : Codable, Equatable {
     let id: Int?
     let title: String
     let route: RouteType
-    let previous: Int?
+    let previousStationId: Int?
     let direction: RouteDirection
-    let next: Int?
+    let nextStationId: Int?
     let hasInterchange: Bool
-    let fair: Double
+    let fare: Double
     
     enum CodingKeys: String, CodingKey {
          case id
          case title
          case route
-         case previous = "previous_station_id"
+         case previousStationId = "previous_station_id"
          case direction
-         case next = "next_station_id"
+         case nextStationId = "next_station_id"
          case hasInterchange = "interchange_available"
-         case fair
+         case fare
     }
 }

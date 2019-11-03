@@ -22,7 +22,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="eBT-Zh-FUs">
-                                <rect key="frame" x="22" y="128.5" width="370" height="174"/>
+                                <rect key="frame" x="22" y="128.5" width="370" height="197"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-ui-tSc">
                                         <rect key="frame" x="44.5" y="0.0" width="281" height="31.5"/>
@@ -76,27 +76,37 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eur-wf-c1s">
+                                        <rect key="frame" x="0.0" y="107" width="370" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="W0H-Me-AX0"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="mZy-ya-SxJ">
-                                        <rect key="frame" x="0.0" y="107" width="370" height="44"/>
+                                        <rect key="frame" x="0.0" y="130" width="370" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBM-mt-zkS">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBM-mt-zkS">
                                                 <rect key="frame" x="0.0" y="0.0" width="179.5" height="44"/>
+                                                <color key="backgroundColor" red="0.13272270289999999" green="0.1908199237" blue="0.3026028174" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="200" id="2Te-VG-JkY"/>
                                                     <constraint firstAttribute="height" constant="44" id="Y4o-r9-WCe"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="13"/>
                                                 <state key="normal" title="Calculate Fair">
                                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapCalculateFairButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y0O-ZR-MXA"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaA-WF-Kht">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaA-WF-Kht">
                                                 <rect key="frame" x="190.5" y="0.0" width="179.5" height="44"/>
+                                                <color key="backgroundColor" red="0.13272270289999999" green="0.1908199237" blue="0.3026028174" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="G27-GY-3Xq"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="200" id="jOo-Jg-I7R"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="13"/>
                                                 <state key="normal" title="Generate Ticket">
                                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -104,7 +114,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qw-3i-DQT">
-                                        <rect key="frame" x="0.0" y="173" width="370" height="1"/>
+                                        <rect key="frame" x="0.0" y="196" width="370" height="1"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="cah-En-a34"/>
@@ -116,13 +126,13 @@
                                 </constraints>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total fair between Rajiv Chowk and XYZ will be 10$" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2J-vj-jBp">
-                                <rect key="frame" x="22" y="335.5" width="370" height="97.5"/>
+                                <rect key="frame" x="22" y="358.5" width="370" height="97.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="25"/>
                                 <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vn-df-I2q">
-                                <rect key="frame" x="22" y="280.5" width="370" height="216"/>
+                                <rect key="frame" x="22" y="304" width="370" height="216"/>
                                 <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="iwk-Ap-vwB"/>
@@ -153,6 +163,7 @@
                         <outlet property="calculateFairButton" destination="YBM-mt-zkS" id="aNo-zT-ddl"/>
                         <outlet property="fromTextField" destination="kaM-d4-58E" id="VQz-NK-ZpC"/>
                         <outlet property="generateTicketButton" destination="jaA-WF-Kht" id="3Zj-bZ-nwS"/>
+                        <outlet property="informationLabel" destination="M2J-vj-jBp" id="PeI-rE-mrw"/>
                         <outlet property="stationPicker" destination="0vn-df-I2q" id="ftr-6k-d1W"/>
                         <outlet property="toTextField" destination="Ldo-wI-hFy" id="tp8-wS-b7d"/>
                     </connections>

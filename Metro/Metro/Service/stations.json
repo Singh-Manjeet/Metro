@@ -6,7 +6,7 @@
             "direction": "west",
             "next_station_id": 2,
             "interchange_available": false,
-            "fair": 2.00
+            "fare": 2.00
         },
         {
             "id": 2,
@@ -16,7 +16,7 @@
             "direction": "west",
             "next_station_id": 3,
             "interchange_available": false,
-            "fair": 2.00
+            "fare": 2.00
         },
         {
             "id": 3,
@@ -26,7 +26,7 @@
             "direction": "west",
             "next_station_id": 4,
             "interchange_available": false,
-            "fair": 2.00
+            "fare": 2.00
         },
         {
             "id": 4,
@@ -36,7 +36,7 @@
             "direction": "west",
             "next_station_id": 5,
             "interchange_available": true,
-            "fair": 5.00
+            "fare": 5.00
         },
         {
             "id": 5,
@@ -46,7 +46,7 @@
             "direction": "west",
             "next_station_id": 6,
             "interchange_available": false,
-            "fair": 2.00
+            "fare": 2.00
         },
         {
             "id": 6,
@@ -56,7 +56,7 @@
             "direction": "west",
             "next_station_id": 7,
             "interchange_available": true,
-            "fair": 5.00
+            "fare": 5.00
         },
         {
             "id": 7,
@@ -66,7 +66,7 @@
             "direction": "north",
             "next_station_id": 0,
             "interchange_available": false,
-            "fair": 2.00
+            "fare": 2.00
         },
         {
             "id": 8,
@@ -76,7 +76,7 @@
             "direction": "north",
             "next_station_id": 0,
             "interchange_available": false,
-            "fair": 2.00
+            "fare": 2.00
         },
         {
             "id": 9,
@@ -86,7 +86,7 @@
             "direction": "south",
             "next_station_id": 10,
             "interchange_available": false,
-            "fair": 2.00
+            "fare": 2.00
         },
         {
             "id": 10,
@@ -94,8 +94,8 @@
             "route": "yellow",
             "previous_station_id": 9,
             "direction": "south",
-            "next_station_id": 0,
+            "next_station_id": 11,
             "interchange_available": false,
-            "fair": 2.00
+            "fare": 2.00
         }
     ]

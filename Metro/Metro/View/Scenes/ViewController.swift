@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var generateTicketButton: UIButton!
     @IBOutlet private weak var calculateFairButton: UIButton!
     @IBOutlet private weak var stationPicker: UIPickerView!
+    @IBOutlet private weak var informationLabel: UILabel!
     
     private var viewModel: StationViewModel!
     private var pickerMode: PickerMode = .from
@@ -71,12 +72,20 @@ private extension ViewController {
     
     func animatePickerView(show: Bool) {
         
-        UIView.animate(withDuration: 1, delay: 0, options: .curveLinear, animations: { [weak self] in
+        UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseIn, animations: { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.stationPicker.alpha = show ? 1.0 : 0
             strongSelf.stationPicker.isUserInteractionEnabled = show
             strongSelf.stationPicker.layoutIfNeeded()
         }, completion: nil)
+    }
+    
+    // Actions
+    @IBAction func didTapCalculateFairButton(_ sender: UIButton) {
+        
+        guard viewModel.isValidJourney else { return }
+        informationLabel.isHidden = false
+        informationLabel.text = "Total fare between \(viewModel.journeyStartedAt!.title) and \(viewModel.journeyEndedAt!.title) is $\(viewModel.totalFare.rounded())"
     }
 }
 
@@ -94,12 +103,15 @@ extension ViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         
         guard let stations = viewModel.stations else { return }
+        let stationAtRow = stations[row]
         
         switch pickerMode {
         case .from:
-            fromTextField.text = stations[row].title
+            fromTextField.text = stationAtRow.title
+            viewModel.journeyStartedAt = stationAtRow
         case .to:
             toTextField.text = stations[row].title
+            viewModel.journeyEndedAt = stationAtRow
         }
         
         animatePickerView(show: false)
@@ -117,6 +129,7 @@ extension ViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
 // MARK: - UITextFieldDelegate
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        informationLabel.isHidden = true
         pickerMode = textField == fromTextField ? .from : .to
         animatePickerView(show: true)
         return false

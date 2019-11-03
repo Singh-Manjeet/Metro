@@ -33,6 +33,7 @@ class DataManager {
                 let decoder = JSONDecoder()
                 let stations = try decoder.decode([Station].self, from: data)
                 onCompletion(.success(stations))
+                return
             } catch {
                 onCompletion(.failure(APIError()))
             }
