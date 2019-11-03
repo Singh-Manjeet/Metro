@@ -102,8 +102,9 @@ final class StationViewModel {
                     currentStation = previousStation!
                 }else {
                     totalFare += currentStation.fare
-                    previousStation = previousStations.first
-                    currentStation = previousStation!
+                    if let previous = previousStations.first {
+                        currentStation = previous
+                    }
                 }
             case .backward:
                 if currentStation.hasInterchange {
@@ -112,9 +113,7 @@ final class StationViewModel {
                     previousStations = allStations.filter { $0.id == currentStation.previousStationId }
                 }
                 
-                if previousStations.count == 0 {
-                    searchMode = .forward
-                }else if previousStations.count > 1 {
+                if previousStations.count > 1 {
                     previousStation =  previousStations.filter { $0.route == firstStation.route && $0.direction == firstStation.direction }.first
                     if previousStation == nil {
                         previousStation =  previousStations.filter { $0.route == firstStation.route }.first
@@ -122,8 +121,9 @@ final class StationViewModel {
                     
                 }else {
                     totalFare += currentStation.fare
-                    previousStation = previousStations.first
-                    currentStation = previousStation!
+                    if let previous = previousStations.first {
+                        currentStation = previous
+                    }
                 }
             }
         }

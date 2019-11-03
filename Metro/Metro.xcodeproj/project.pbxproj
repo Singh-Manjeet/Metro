@@ -21,6 +21,8 @@
 		30598EC0236D26FD00EE4325 /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30598EBF236D26FD00EE4325 /* ErrorPresentable.swift */; };
 		30598EC2236D396700EE4325 /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 30598EC1236D396700EE4325 /* stations.json */; };
 		30598EC4236D6AC900EE4325 /* StationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30598EC3236D6AC900EE4325 /* StationViewModel.swift */; };
+		30598EC6236F0CDA00EE4325 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30598EC5236F0CDA00EE4325 /* LoadingView.swift */; };
+		30598EC8236F0CFE00EE4325 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30598EC7236F0CFE00EE4325 /* Loadable.swift */; };
 		3F9DFC3299A16EF5BE69ACE7 /* Pods_Metro_MetroUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D92994040F21428776CF547 /* Pods_Metro_MetroUITests.framework */; };
 		84E5B44DDE0E5323E766DF40 /* Pods_MetroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A66E7A8388AB25C73E0CB6 /* Pods_MetroTests.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,8 @@
 		30598EBF236D26FD00EE4325 /* ErrorPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentable.swift; sourceTree = "<group>"; };
 		30598EC1236D396700EE4325 /* stations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stations.json; sourceTree = "<group>"; };
 		30598EC3236D6AC900EE4325 /* StationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
+		30598EC5236F0CDA00EE4325 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		30598EC7236F0CFE00EE4325 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		3D92994040F21428776CF547 /* Pods_Metro_MetroUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Metro_MetroUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F0EAA45FB8619B775A329D /* Pods-MetroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetroTests.release.xcconfig"; path = "Target Support Files/Pods-MetroTests/Pods-MetroTests.release.xcconfig"; sourceTree = "<group>"; };
 		5D36489F212BB5644C8D9E31 /* Pods-Metro-MetroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Metro-MetroUITests.release.xcconfig"; path = "Target Support Files/Pods-Metro-MetroUITests/Pods-Metro-MetroUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				30598EBF236D26FD00EE4325 /* ErrorPresentable.swift */,
+				30598EC7236F0CFE00EE4325 /* Loadable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 		30598EB4236D0C4A00EE4325 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				30598EC5236F0CDA00EE4325 /* LoadingView.swift */,
 				30598EB6236D0CBD00EE4325 /* Scenes */,
 				30598EB5236D0CBD00EE4325 /* Storyboards */,
 			);
@@ -481,9 +487,11 @@
 			files = (
 				30598E85236D09E500EE4325 /* ViewController.swift in Sources */,
 				30598EBE236D24BE00EE4325 /* Station.swift in Sources */,
+				30598EC8236F0CFE00EE4325 /* Loadable.swift in Sources */,
 				30598EC0236D26FD00EE4325 /* ErrorPresentable.swift in Sources */,
 				30598EBC236D245200EE4325 /* DataManager.swift in Sources */,
 				30598E81236D09E500EE4325 /* AppDelegate.swift in Sources */,
+				30598EC6236F0CDA00EE4325 /* LoadingView.swift in Sources */,
 				30598E83236D09E500EE4325 /* SceneDelegate.swift in Sources */,
 				30598EC4236D6AC900EE4325 /* StationViewModel.swift in Sources */,
 			);

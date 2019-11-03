@@ -13,7 +13,7 @@ enum PickerMode {
     case to
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, Loadable {
     
     //MARK: - IBOutlets & Vars
     @IBOutlet private weak var fromTextField: UITextField!
@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         
         setupUI()
         viewModel = StationViewModel(delegate: self)
+        showLoadingView()
         viewModel.loadStations()
     }
 }
@@ -42,6 +43,7 @@ extension ViewController: StationViewModelDelegate {
         DispatchQueue.main.async { [weak self] in
             
             guard let strongSelf = self else { return }
+            strongSelf.hideLoadingView()
             
             switch state {
             case .loaded:
