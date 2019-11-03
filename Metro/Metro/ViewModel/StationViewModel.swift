@@ -39,8 +39,8 @@ final class StationViewModel {
     var stations: [Station]?
     var journeyStartedAt: Station?
     var journeyEndedAt: Station?
-    var searchMode: SearchMode = .forward
     
+    private var searchMode: SearchMode = .forward
     weak var delegate: StationViewModelDelegate?
     
     private(set) var state: APIDataState<Container> = .loading {

@@ -57,6 +57,7 @@ extension ViewController: StationViewModelDelegate {
     }
 }
 
+// MARK: - Helpers
 private extension ViewController {
     func setupUI() {
         [fromTextField, toTextField, generateTicketButton, calculateFairButton].forEach {
@@ -91,6 +92,7 @@ private extension ViewController {
     }
 }
 
+// MARK: - Picker View
 extension ViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
