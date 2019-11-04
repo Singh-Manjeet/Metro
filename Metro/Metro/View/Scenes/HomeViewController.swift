@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  Metro
 //
 //  Created by Manjeet Singh on 2/11/19.
@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import MessageUI
 
 enum PickerMode {
     case from
     case to
 }
 
-class ViewController: UIViewController, Loadable {
+class HomeViewController: UIViewController, Loadable {
     
     //MARK: - IBOutlets & Vars
     @IBOutlet private weak var fromTextField: UITextField!
@@ -37,7 +38,7 @@ class ViewController: UIViewController, Loadable {
 }
 
 // MARK: - StationViewModelDelegate
-extension ViewController: StationViewModelDelegate {
+extension HomeViewController: StationViewModelDelegate {
     func stateDidChange(_ state: APIDataState<Container>) {
         
         DispatchQueue.main.async { [weak self] in
@@ -58,7 +59,7 @@ extension ViewController: StationViewModelDelegate {
 }
 
 // MARK: - Helpers
-private extension ViewController {
+private extension HomeViewController {
     func setupUI() {
         [fromTextField, toTextField, generateTicketButton, calculateFairButton].forEach {
             $0?.layer.cornerRadius = ($0?.frame.height ?? 44) / 2
@@ -90,10 +91,19 @@ private extension ViewController {
         informationLabel.isHidden = false
         informationLabel.text = "Total fare between \(viewModel.journeyStartedAt!.title) and \(viewModel.journeyEndedAt!.title) is $\(viewModel.totalFare.rounded())"
     }
+    
+    @IBAction func didTapGenerateTicketButton(_ sender: UIButton) {
+        
+        guard let firstStation = viewModel.journeyStartedAt,
+            let lastStation = viewModel.journeyEndedAt else { return }
+        
+        let ticketInformation = " Ticket from \(firstStation.title) to \(lastStation.title). Valid till \(Date().addingTimeInterval(30.0 * 60.0))"
+        Router().route(to: .ticket, from: self, parameters: ticketInformation)
+    }
 }
 
 // MARK: - Picker View
-extension ViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
+extension HomeViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -131,7 +141,7 @@ extension ViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 // MARK: - UITextFieldDelegate
-extension ViewController: UITextFieldDelegate {
+extension HomeViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         informationLabel.isHidden = true
         pickerMode = textField == fromTextField ? .from : .to
@@ -139,4 +149,32 @@ extension ViewController: UITextFieldDelegate {
         return false
     }
 }
+
+// MARK: - Mail Composer
+//extension HomeViewController: MFMailComposeViewControllerDelegate {
+//
+//    @IBAction func sendEmail(sender: UIButton) {
+//        //Check to see the device can send email.
+//        if( MFMailComposeViewController.canSendMail() ) {
+//            let mailComposer = MFMailComposeViewController()
+//            mailComposer.mailComposeDelegate = self
+//
+//            //Set the subject and message of the email
+//            mailComposer.setSubject("Your Metro Journey Ticket")
+//            mailComposer.setMessageBody("This is what they sound like.", isHTML: false)
+//
+//            if let filePath = NSBundle.mainBundle().pathForResource("swifts", ofType: "wav") {
+//                if let fileData = NSData(contentsOfFile: filePath) {
+//                    mailComposer.addAttachmentData(fileData, mimeType: "audio/wav", fileName: "swifts")
+//                }
+//            }
+//
+//            present(mailComposer, animated: true, completion: nil)
+//        }
+//    }
+//
+//    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+//        dismissViewControllerAnimated(true, completion: nil)
+//    }
+//}
 

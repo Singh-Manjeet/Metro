@@ -19,8 +19,8 @@ class MetroTests: XCTestCase {
         DataManager.shared.fetchMetroStations { result in
             
             switch result {
-            case .success(let price):
-                XCTAssertTrue(price.detail != nil)
+            case .success(let stations):
+                XCTAssertTrue(stations.count > 0)
                 expectation.fulfill()
             case .failure:
                 XCTFail()
